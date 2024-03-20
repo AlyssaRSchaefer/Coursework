@@ -7,20 +7,34 @@ the algorithm from lab 2. */
 #include <stdio.h>
 
 void main() {
-    unsigned int N; //number to take factorial of
-    unsigned int RESULT;
+    unsigned int N = 0; //number to take factorial of
+    unsigned int NFAC;
+    unsigned int M = N;
     unsigned int i;
-    unsigned int j;
+    unsigned int sum;
 
-    N = 2;
-    RESULT = N;
+
+    M--;
+    sum = 0;
     i = 0;
-    j = N-1;
-    while (j>0) {
-        while (i<j) {
-            RESULT = j + RESULT;
+
+    if (N == 0) {
+        N = 1;
+    }
+    else {
+        while (M > 1) {
+            while (i < N) {
+                sum = (M) + sum;
+                i++;
+            }
+            i=0;
+            N = sum;
+            sum = 0;
+            M--;
         }
     }
 
-    printf("The factorial of %d is %d.\n", N, RESULT);
+    NFAC = N;
+
+    printf("The factorial is %d\n", NFAC);
 }
